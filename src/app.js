@@ -1,10 +1,11 @@
 const express = require('express')
-require('./db/mongoose')
-
 const userRouter = require('./routers/user')
 const taskRouter = require('./routers/task')
-
 const app = express()
+
+
+//database connection
+require('./db/mongoose')
 
 app.use(express.json())
 app.use(userRouter)
