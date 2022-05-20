@@ -6,9 +6,9 @@ const Task = require('../../src/models/task')
 const userOneId = new mongoose.Types.ObjectId()
 const userOne = {
     _id: userOneId,
-    name: 'Milkye',
-    email: 'mikeey@example.com',
-    password: '56whatt!!',
+    name: 'Milkyeei',
+    email: 'mikeeeyi@example.com',
+    password: '56whatttt!!',
     tokens: [{
         token: jwt.sign({ _id: userOneId }, 'thisismynewcourse')
     }]
@@ -17,8 +17,8 @@ const userOne = {
 const userTwoId = new mongoose.Types.ObjectId()
 const userTwo = {
     _id: userTwoId,
-    name: 'Jessi',
-    email: 'jessi@example.com',
+    name: 'Jessiee',
+    email: 'jessiee@example.com',
     password: 'myhouse099@@',
     tokens: [{
         token: jwt.sign({ _id: userTwoId }, 'thisismynewcourse')

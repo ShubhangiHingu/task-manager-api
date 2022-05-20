@@ -12,6 +12,7 @@ const User = require('../models/user')
 
 
 //create new user
+
 exports.users_signup = (async (req, res) => {
     const user = new User(req.body)
 
@@ -26,6 +27,7 @@ exports.users_signup = (async (req, res) => {
 
 
 //login user
+
 exports.users_login = (async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
@@ -38,6 +40,7 @@ exports.users_login = (async (req, res) => {
 
 
 //logout user
+
 exports.users_logout = (auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
@@ -53,6 +56,7 @@ exports.users_logout = (auth, async (req, res) => {
 
 
 //logAllout user
+
 exports.users_logoutAll = (auth, async (req, res) => {
     try {
         req.user.tokens = []
@@ -64,12 +68,14 @@ exports.users_logoutAll = (auth, async (req, res) => {
 })
 
 //get user
+
 exports.users_auth = (auth, async (req, res) => {
     res.send(req.user)
 })
 
 
 //update user
+
 exports.users_update = (auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
@@ -89,6 +95,7 @@ exports.users_update = (auth, async (req, res) => {
 })
 
 //delete user
+
 exports.users_delete = ('/users/me', auth, async (req, res) => {
     try {
         await req.user.remove()
@@ -101,6 +108,7 @@ exports.users_delete = ('/users/me', auth, async (req, res) => {
 
 
 //upload  files img/doc/word
+
 const upload = multer({
     limits: {
         fileSize: 1000000
@@ -116,6 +124,7 @@ const upload = multer({
 
 
 //upload avatar
+
 exports.users_avatar_upload = (auth, upload.single('avatar'), async (req, res) => {
     const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
     req.user.avatar = buffer
@@ -127,6 +136,7 @@ exports.users_avatar_upload = (auth, upload.single('avatar'), async (req, res) =
 
 
 //delete avatar
+
 exports.users_avatar_delete = (auth, async (req, res) => {
     req.user.avatar = undefined
     await req.user.save()
@@ -135,6 +145,7 @@ exports.users_avatar_delete = (auth, async (req, res) => {
 
 
 //get avatar id
+
 exports.users_avatar_id = ('/users/:id/avatar', async (req, res) => {
     try {
         const user = await User.findById(req.params.id)

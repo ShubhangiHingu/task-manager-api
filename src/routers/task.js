@@ -1,10 +1,8 @@
-
-const express = require('express')
-
+const express = require('express');
 const TaskController = require('../controllers/task');
-const auth = require('../middleware/auth')
+const auth = require('../middleware/auth');
 
-const router = new express.Router()
+const router = new express.Router();
 
 
 // Handle incoming POST requests to /tasks

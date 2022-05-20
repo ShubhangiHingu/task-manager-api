@@ -5,7 +5,7 @@ const app = express()
 
 
 //database connection
-require('./db/mongoose')
+require('./config/db')
 
 app.use(express.json())
 app.use(userRouter)

@@ -1,5 +1,3 @@
-// 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
-
 const nodemailer = require('nodemailer');
 
 
@@ -13,7 +11,7 @@ let mailTransporter = nodemailer.createTransport({
 
 let mailDetails = {
 	from: 'shubhangihingu@gmail.com',
-	to: 'priyankag.mobio@gmail.com',
+	to: 'shubhangih.mobio@gmail.com',
 	subject: 'Test mail',
 	text: 'Node.js mail '
 };
